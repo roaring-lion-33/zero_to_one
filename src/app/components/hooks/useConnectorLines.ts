@@ -7,7 +7,7 @@ interface Line {
   y2: number;
 }
 
-export function useConnectorLines(refs: React.RefObject<HTMLElement>[]) {
+export function useConnectorLines(refs: React.RefObject<HTMLElement | null>[]) {
   const [lines, setLines] = useState<Line[]>([]);
 
   useEffect(() => {

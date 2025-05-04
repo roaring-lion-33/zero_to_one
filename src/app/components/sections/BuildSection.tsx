@@ -5,7 +5,6 @@ import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 import {
   ServerCog,
   ShieldCheck,
-  Sparkles,
   Terminal,
   Code2,
   CheckCircle,

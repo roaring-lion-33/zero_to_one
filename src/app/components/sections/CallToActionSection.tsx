@@ -4,7 +4,6 @@ import { FC } from 'react';
 import { motion } from 'framer-motion';
 import { Send } from 'lucide-react';
 import MotionSection from '../motion/MotionSection';
-import MotionCard from '../motion/MotionCard';
 import Image from 'next/image';
 import RevealText from '../motion/RevealText';
 

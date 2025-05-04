@@ -1,8 +1,6 @@
 'use client';
 
-import MotionCard from './builder/MotionCard';
 import { useRef, useEffect } from 'react';
-import MotionSection from './builder/MotionSection';
 import { motion, useInView } from 'framer-motion';
 import clsx from 'clsx';
 
@@ -48,17 +46,17 @@ const SectionDivider = ({
   return (
     <motion.svg
       ref={ref}
-      viewBox="0 0 500 100"
-      preserveAspectRatio="none"
+      viewBox='0 0 500 100'
+      preserveAspectRatio='none'
       className={clsx(
         'w-full h-16 md:h-24 text-white dark:text-[#030b1a]',
         direction === 'top' ? 'rotate-180' : '',
         className
       )}
-      initial="initial"
-      whileInView="animate"
+      initial='initial'
+      whileInView='animate'
     >
-      <motion.path fill="currentColor" variants={pathVariants} />
+      <motion.path fill='currentColor' variants={pathVariants} />
     </motion.svg>
   );
 };

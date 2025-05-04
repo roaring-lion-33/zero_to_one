@@ -1,11 +1,11 @@
 
 // barrel-test.ts
-import * as Sections from '@/components/sections';
-import * as UI from '@/components/ui';
-import * as Features from '@/components/features';
-import * as Primitives from '@/components/primitives';
-import * as Timeline from '@/components/HowWeWorkTimeline';
-import * as Motion from '@/components/motion';
+import * as Sections from './components/sections';
+import * as UI from './components/ui';
+import * as Features from './components/features';
+import * as Primitives from './components/primitives';
+import * as Timeline from './components/HowWeWorkTimeline';
+import * as Motion from './components/motion';
 
 console.log('✅ All barrels resolved successfully.');
 console.log({

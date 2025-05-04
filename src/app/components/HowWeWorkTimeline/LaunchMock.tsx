@@ -1,7 +1,5 @@
 'use client';
-
-import { useEffect } from 'react';
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
+import { motion } from 'framer-motion';
 import WithShimmer from './WithShimmer';
 import {
   ArrowUpRight,

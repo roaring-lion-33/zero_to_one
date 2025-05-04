@@ -1,4 +1,3 @@
-
 'use client';
 
 import { motion } from 'framer-motion';
@@ -8,7 +7,6 @@ interface MotionStackProps {
   delay?: number;
   stagger?: number;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
 }
 
 /**
@@ -18,13 +16,12 @@ const MotionStack: FC<PropsWithChildren<MotionStackProps>> = ({
   delay = 0.2,
   stagger = 0.1,
   className = '',
-  as: Component = 'div',
   children,
 }) => {
   return (
     <motion.div
-      initial="hidden"
-      whileInView="visible"
+      initial='hidden'
+      whileInView='visible'
       viewport={{ once: true }}
       variants={{
         hidden: {},

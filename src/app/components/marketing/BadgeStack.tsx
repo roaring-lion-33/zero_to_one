@@ -1,8 +1,6 @@
 'use client';
 
-import MotionCard from './builder/MotionCard';
 import { FC } from 'react';
-import MotionSection from './builder/MotionSection';
 import { motion } from 'framer-motion';
 import { Rocket, Brain, ShieldCheck } from 'lucide-react';
 

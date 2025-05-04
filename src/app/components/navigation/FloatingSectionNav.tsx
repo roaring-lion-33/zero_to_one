@@ -1,19 +1,13 @@
 'use client';
 
-import {
-  motion,
-  useScroll,
-  useTransform,
-  AnimatePresence,
-} from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import * as Tooltip from '@radix-ui/react-tooltip';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import {
   Navigation,
   Rocket,
   CheckCircle,
-  DollarSign,
   Phone,
   User,
   Lightbulb,
@@ -34,7 +28,6 @@ const sections = [
 
 export default function DotNavScrollSpy() {
   const [activeId, setActiveId] = useState<string | null>(null);
-  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll();
   const progressHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 

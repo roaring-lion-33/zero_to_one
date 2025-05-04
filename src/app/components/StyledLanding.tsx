@@ -1,7 +1,7 @@
 'use client';
 
 import FloatingSectionNav from './navigation/FloatingSectionNav';
-import { HowWeWorkTimeline, CaseStudySection, WhyWeExist } from './old';
+import { HowWeWorkTimeline, CaseStudySection } from './old';
 import {
   HeroSection,
   CallToActionSection,
@@ -9,8 +9,6 @@ import {
   DesignSection,
   BuildSection,
   LaunchSection,
-  FoundersSection,
-  FivePillars,
   AboutUsUnified,
 } from './sections';
 

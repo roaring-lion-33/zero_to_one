@@ -3,7 +3,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import MotionSection from '../motion/MotionSection';
-import BadgeStack from '../marketing/BadgeStack';
 import ContactUsModal from '../old/ContactUsModal';
 import { ArrowDownIcon } from 'lucide-react';
 

@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import RevealText from '../motion/RevealText';
 import MotionSection from '../motion/MotionSection';
-import SectionSubHeader from './SectionSubHeader';
 import { Eye, Zap, Handshake, Target, Sparkles } from 'lucide-react';
 
 const items = [
@@ -13,19 +12,6 @@ const items = [
   'We’ve helped visionaries turn those sparks into funded, scalable products.',
   'From founder decks to real launchable MVPs, we’ve been the force behind 0 → 1.',
   'We don’t just build software. We bring ideas to life with clarity and craft.',
-];
-
-const pins = [
-  { x: '18%', y: '42%' }, // San Francisco
-  { x: '26%', y: '43%' }, // Austin
-  { x: '40%', y: '44%' }, // NYC
-  { x: '53%', y: '47%' }, // Brazil
-  { x: '60%', y: '48%' }, // London
-  { x: '68%', y: '52%' }, // Berlin
-  { x: '72%', y: '55%' }, // India
-  { x: '76%', y: '50%' }, // Dubai
-  { x: '84%', y: '60%' }, // Singapore
-  { x: '88%', y: '58%' }, // Sydney
 ];
 
 const pillars = [
@@ -221,7 +207,6 @@ const AboutUsUnified: FC = () => {
           {items.map((text, i) => (
             <RevealText
               key={i}
-              as='p'
               className='leading-relaxed tracking-wide max-w-3xl mx-auto'
             >
               {text}

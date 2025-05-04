@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import MotionSection from '../motion/MotionSection';
 import RevealText from '../motion/RevealText';
 import CaseStudyBadge from './CaseStudyBadge';
-import SectionSubHeader from './SectionSubHeader';
 import {
   ClipboardList,
   ShieldCheck,
@@ -234,7 +233,19 @@ const PatchworkCaseStudyGrid: FC = () => {
             <motion.div
               key={`card-${i}`}
               className={`relative group z-20 flex flex-col items-start p-4 rounded-xl bg-gray-50 shadow-md ring-1 ring-gray-200 hover:shadow-lg transition-all duration-500 ease-[cubic-bezier(0.25,0.8,0.25,1)]
-            ${i % 6 === 0 ? 'sm:col-span-3 sm:row-span-2' : i % 6 === 1 ? 'sm:col-span-3' : i % 6 === 2 ? 'sm:col-span-2 sm:row-span-2' : i % 6 === 3 ? 'sm:col-span-4' : i % 6 === 4 ? 'sm:col-span-2' : 'sm:col-span-3'}`}
+            ${
+              i % 6 === 0
+                ? 'sm:col-span-3 sm:row-span-2'
+                : i % 6 === 1
+                ? 'sm:col-span-3'
+                : i % 6 === 2
+                ? 'sm:col-span-2 sm:row-span-2'
+                : i % 6 === 3
+                ? 'sm:col-span-4'
+                : i % 6 === 4
+                ? 'sm:col-span-2'
+                : 'sm:col-span-3'
+            }`}
             >
               <div className='absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500 bg-neutral-500 rounded-xl' />
 

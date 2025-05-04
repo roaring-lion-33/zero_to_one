@@ -1,6 +1,6 @@
 export { default as ComparePlansTable } from './ComparePlansTable';
 export { default as CompareFeaturesTable } from './CompareFeaturesTable';
-export { default as CompareFeaturesCarousel } from './CompareFeaturesCarousel';
+
 export { default as PricingTableTabs } from './PricingTableTabs';
 export { default as ProductPreview } from './ProductPreview';
 export { default as ProductBuildSimulator } from './ProductBuildSimulator';

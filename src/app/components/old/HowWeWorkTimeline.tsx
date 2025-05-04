@@ -3,7 +3,6 @@
 import { useState, useEffect, FC, useRef, useCallback } from 'react';
 import { motion, useTransform, useScroll, Variants } from 'framer-motion';
 import MotionSection from '../motion/MotionSection';
-import MotionCard from '../motion/MotionCard';
 import RevealText from '../motion/RevealText';
 import DiscoverMock from '../HowWeWorkTimeline/DiscoverMock';
 import DesignMock from '../HowWeWorkTimeline/DesignMock';
@@ -11,8 +10,7 @@ import BuildMock from '../HowWeWorkTimeline/BuildMock';
 import LaunchMock from '../HowWeWorkTimeline/LaunchMock';
 import TimelineProgressNav from '../HowWeWorkTimeline/TimelineProgressNav';
 import TimelineMobileNav from '../HowWeWorkTimeline/TimelineMobileNav';
-import SectionSubHeader from './SectionSubHeader';
-import { Lightbulb, Ruler, Code2, Rocket, Sparkles } from 'lucide-react';
+import { Lightbulb, Ruler, Code2, Rocket } from 'lucide-react';
 
 const steps = [
   {
@@ -107,7 +105,7 @@ const iconMap = {
 };
 
 const HowWeWorkTimeline: FC = () => {
-  const [view, setView] = useState<'simple' | 'visual'>('visual');
+  const [view] = useState<'simple' | 'visual'>('visual');
   const [loading, setLoading] = useState(false);
   const [visibleStep, setVisibleStep] = useState<number | null>(null);
   const stepRefs = useRef<(HTMLElement | null)[]>([]);
@@ -226,9 +224,6 @@ const HowWeWorkTimeline: FC = () => {
             {steps.map((step, i) => {
               const Icon = iconMap[step.id as keyof typeof iconMap];
               const isRight = i % 2 !== 0;
-              const lineProps = isRight
-                ? { x1: '100', y1: '0', x2: '0', y2: '100' }
-                : { x1: '0', y1: '0', x2: '100', y2: '100' };
 
               return (
                 <section
@@ -240,7 +235,9 @@ const HowWeWorkTimeline: FC = () => {
                   key={step.id}
                 >
                   <div
-                    className={`flex flex-col md:flex-row items-start gap-6 ${isRight ? 'md:flex-row-reverse' : ''}`}
+                    className={`flex flex-col md:flex-row items-start gap-6 ${
+                      isRight ? 'md:flex-row-reverse' : ''
+                    }`}
                   >
                     <motion.div
                       custom={i}
@@ -257,16 +254,18 @@ const HowWeWorkTimeline: FC = () => {
       step.id === 1
         ? 'border-indigo-500 hover:ring-indigo-300/50'
         : step.id === 2
-          ? 'border-purple-500 hover:ring-purple-300/50'
-          : step.id === 3
-            ? 'border-blue-500 hover:ring-blue-300/50'
-            : 'border-green-500 hover:ring-green-300/50'
+        ? 'border-purple-500 hover:ring-purple-300/50'
+        : step.id === 3
+        ? 'border-blue-500 hover:ring-blue-300/50'
+        : 'border-green-500 hover:ring-green-300/50'
     }
     ${isRight ? 'ml-4 text-right border-r-4' : 'mr-4 text-left border-l-4'}
     animate-shadow-glow`}
                       >
                         <div
-                          className={`flex items-center gap-3 mb-4 ${isRight ? 'justify-end' : 'justify-start'}`}
+                          className={`flex items-center gap-3 mb-4 ${
+                            isRight ? 'justify-end' : 'justify-start'
+                          }`}
                         >
                           <motion.span
                             style={{ y: iconY }}
@@ -277,7 +276,15 @@ const HowWeWorkTimeline: FC = () => {
                               stiffness: 200,
                               damping: 12,
                             }}
-                            className={`relative inline-flex h-10 w-10 items-center justify-center rounded-full shadow-lg transition-transform duration-300 ${step.id === 1 ? 'bg-indigo-600' : step.id === 2 ? 'bg-purple-600' : step.id === 3 ? 'bg-blue-600' : 'bg-green-600'} text-white`}
+                            className={`relative inline-flex h-10 w-10 items-center justify-center rounded-full shadow-lg transition-transform duration-300 ${
+                              step.id === 1
+                                ? 'bg-indigo-600'
+                                : step.id === 2
+                                ? 'bg-purple-600'
+                                : step.id === 3
+                                ? 'bg-blue-600'
+                                : 'bg-green-600'
+                            } text-white`}
                           >
                             <Icon className='h-6 w-6 relative z-10' />
                             <motion.div
@@ -292,10 +299,10 @@ const HowWeWorkTimeline: FC = () => {
                                   step.id === 1
                                     ? '#6366f1'
                                     : step.id === 2
-                                      ? '#8b5cf6'
-                                      : step.id === 3
-                                        ? '#3b82f6'
-                                        : '#10b981',
+                                    ? '#8b5cf6'
+                                    : step.id === 3
+                                    ? '#3b82f6'
+                                    : '#10b981',
                               }}
                             />
                           </motion.span>
@@ -309,17 +316,17 @@ const HowWeWorkTimeline: FC = () => {
                             step.id === 1
                               ? 'text-indigo-500'
                               : step.id === 2
-                                ? 'text-purple-500'
-                                : step.id === 3
-                                  ? 'text-blue-500'
-                                  : step.id === 4
-                                    ? 'text-green-500'
-                                    : ''
+                              ? 'text-purple-500'
+                              : step.id === 3
+                              ? 'text-blue-500'
+                              : step.id === 4
+                              ? 'text-green-500'
+                              : ''
                           }`}
                         >
                           {step.week}
                         </h4>
-                        <RevealText as='p' className='mb-4 text-base pb-2'>
+                        <RevealText className='mb-4 text-base pb-2'>
                           {step.text}
                         </RevealText>
                         {step.bullets.map((text, index) => (
@@ -339,11 +346,13 @@ const HowWeWorkTimeline: FC = () => {
                                 step.id === 1
                                   ? 'bg-indigo-500'
                                   : step.id === 2
-                                    ? 'bg-purple-500'
-                                    : step.id === 3
-                                      ? 'bg-blue-500'
-                                      : 'bg-green-500'
-                              } ${isRight ? '-right-[0.6rem]' : '-left-[0.6rem]'}`}
+                                  ? 'bg-purple-500'
+                                  : step.id === 3
+                                  ? 'bg-blue-500'
+                                  : 'bg-green-500'
+                              } ${
+                                isRight ? '-right-[0.6rem]' : '-left-[0.6rem]'
+                              }`}
                               animate={{
                                 y: [0, -1.5, 0],
                                 opacity: [1, 0.6, 1],
@@ -355,15 +364,18 @@ const HowWeWorkTimeline: FC = () => {
                               }}
                             />
                             <RevealText
-                              as='p'
-                              className={`text-sm leading-snug ${isRight ? 'mr-4' : 'ml-4'}`}
+                              className={`text-sm leading-snug ${
+                                isRight ? 'mr-4' : 'ml-4'
+                              }`}
                             >
                               {text}
                             </RevealText>
 
                             {activeBullet[step.id] === index && (
                               <motion.div
-                                className={`absolute z-50 ${isRight ? 'right-8' : 'left-8'} top-0 w-80 bg-gray-50 border border-gray-200 rounded-lg shadow-xl overflow-hidden`}
+                                className={`absolute z-50 ${
+                                  isRight ? 'right-8' : 'left-8'
+                                } top-0 w-80 bg-gray-50 border border-gray-200 rounded-lg shadow-xl overflow-hidden`}
                                 initial={{ opacity: 0, y: -6 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -6 }}
@@ -414,7 +426,9 @@ const HowWeWorkTimeline: FC = () => {
 
                     {/* Thin Primary Line Connector */}
                     <motion.svg
-                      className={`hidden md:block absolute top-[55%] ${isRight ? 'left-[32%]' : 'left-[38%]'} w-[20rem] h-4 z-[-1] opacity-40`}
+                      className={`hidden md:block absolute top-[55%] ${
+                        isRight ? 'left-[32%]' : 'left-[38%]'
+                      } w-[20rem] h-4 z-[-1] opacity-40`}
                       viewBox='0 0 100 10'
                       fill='none'
                     >

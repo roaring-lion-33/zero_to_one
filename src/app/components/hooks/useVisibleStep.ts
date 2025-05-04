@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export function useVisibleStep() {
   const [visibleStep, setVisibleStep] = useState<number | null>(null);

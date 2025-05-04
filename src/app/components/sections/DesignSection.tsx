@@ -1,14 +1,8 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { motion } from 'framer-motion';
-import {
-  LayoutDashboard,
-  PenTool,
-  Layers3,
-  Figma,
-  Sparkles,
-} from 'lucide-react';
+import { LayoutDashboard, PenTool, Layers3, Figma } from 'lucide-react';
 import MotionSection from '../motion/MotionSection';
 import RevealText from '../motion/RevealText';
 import { FigmaPreviewPanel } from '../old';

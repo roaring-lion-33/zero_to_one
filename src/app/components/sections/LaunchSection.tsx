@@ -42,6 +42,10 @@ const launchSteps = [
 ];
 
 const HowWeLaunchSection: FC = () => {
+  const [selectedStep, setSelectedStep] = useState<
+    null | (typeof launchSteps)[0]
+  >(null);
+
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setSelectedStep(null);
@@ -49,9 +53,6 @@ const HowWeLaunchSection: FC = () => {
     window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
   }, []);
-  const [selectedStep, setSelectedStep] = useState<
-    null | (typeof launchSteps)[0]
-  >(null);
 
   return (
     <MotionSection
@@ -76,8 +77,8 @@ const HowWeLaunchSection: FC = () => {
           Ready for Liftoff
         </h2>
         <RevealText className='text-lg sm:text-xl text-gray-600 max-w-xl mx-auto'>
-          We don’t just ship features — we launch fully-formed products with
-          confidence, momentum, and mission control.
+          We don&rsquo;t just ship features — we launch fully-formed products
+          with confidence, momentum, and mission control.
         </RevealText>
       </motion.div>
 
@@ -105,8 +106,8 @@ const HowWeLaunchSection: FC = () => {
               {i === launchSteps.length - 1
                 ? '🚀 Engaged'
                 : i >= 2
-                  ? '🛠 Prepped'
-                  : '✅ Ready'}
+                ? '🛠 Prepped'
+                : '✅ Ready'}
             </div>
           </motion.div>
         ))}
@@ -167,8 +168,8 @@ const HowWeLaunchSection: FC = () => {
           {/* Content */}
           <RevealText className='text-sm sm:text-base text-gray-800 leading-relaxed'>
             The launch experience was insane — pipelines, infra, QA, and support
-            all felt like a Fortune 500 handoff. Best I've seen in a consulting
-            team.
+            all felt like a Fortune 500 handoff. Best I&rsquo;ve seen in a
+            consulting team.
           </RevealText>
 
           {/* Footer */}
@@ -179,6 +180,8 @@ const HowWeLaunchSection: FC = () => {
           </div>
         </div>
       </motion.div>
+
+      {/* Modal */}
       {selectedStep && (
         <motion.div
           className='fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4'
@@ -219,7 +222,7 @@ const HowWeLaunchSection: FC = () => {
                 feels seamless and strategic.
               </p>
               <p className='mt-2'>
-                <strong>What’s included:</strong> Detailed QA passes,
+                <strong>What&rsquo;s included:</strong> Detailed QA passes,
                 stakeholder sign-off, and final delivery packaging.
               </p>
             </div>

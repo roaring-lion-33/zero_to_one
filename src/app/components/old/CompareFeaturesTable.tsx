@@ -1,8 +1,9 @@
-
 'use client';
 
 import React, { useState } from 'react';
 import MotionSection from '../motion/MotionSection';
+import MotionCard from '../motion/MotionCard';
+import RevealText from '../motion/RevealText';
 import { motion } from 'framer-motion';
 import { Check, X, Info } from 'lucide-react';
 
@@ -12,17 +13,20 @@ const rawGroups = [
     features: [
       {
         label: 'Product Strategy Workshop',
-        description: 'Collaborative planning session to align goals with product scope.',
+        description:
+          'Collaborative planning session to align goals with product scope.',
         plans: ['kickstart'],
       },
       {
         label: 'UI/UX Design (Core Flows & Responsive)',
-        description: 'High-fidelity, responsive UI designs covering main user flows.',
+        description:
+          'High-fidelity, responsive UI designs covering main user flows.',
         plans: ['kickstart'],
       },
       {
         label: 'Rails MVP (Turbo, Tailwind, Postgres)',
-        description: 'A performant backend powered by Rails + Turbo + Tailwind stack.',
+        description:
+          'A performant backend powered by Rails + Turbo + Tailwind stack.',
         plans: ['kickstart'],
       },
     ],
@@ -32,7 +36,8 @@ const rawGroups = [
     features: [
       {
         label: 'Auth, Admin, Dashboards',
-        description: 'User authentication, admin controls, and internal dashboards.',
+        description:
+          'User authentication, admin controls, and internal dashboards.',
         plans: ['sprint'],
       },
       {
@@ -62,7 +67,8 @@ const rawGroups = [
       },
       {
         label: 'Stimulus UX (modals, undo, flash)',
-        description: 'Dynamic frontend UX with modals, toasts, and transitions.',
+        description:
+          'Dynamic frontend UX with modals, toasts, and transitions.',
         plans: ['launchpack'],
       },
       {
@@ -82,7 +88,8 @@ const rawGroups = [
     features: [
       {
         label: 'Multi-tenant SaaS (Teams + Roles)',
-        description: 'Scoped user access per organization, with roles and invites.',
+        description:
+          'Scoped user access per organization, with roles and invites.',
         plans: ['studio'],
       },
       {
@@ -159,25 +166,27 @@ export default function CompareFeaturesTable() {
   const [hoverCol, setHoverCol] = useState<number | null>(null);
 
   return (
-    <MotionSection className="px-6 py-24 bg-white border-t" id="compare">
-      <div className="max-w-6xl mx-auto mb-12 text-center md:text-left">
-        <RevealText className="mb-2 text-3xl font-bold text-[#030b1a]">Feature Comparison</RevealText>
-        <p className="max-w-xl mx-auto text-gray-600 text-sm">
+    <MotionSection className='px-6 py-24 bg-white border-t' id='compare'>
+      <div className='max-w-6xl mx-auto mb-12 text-center md:text-left'>
+        <RevealText className='mb-2 text-3xl font-bold text-[#030b1a]'>
+          Feature Comparison
+        </RevealText>
+        <p className='max-w-xl mx-auto text-gray-600 text-sm'>
           Each tier builds on the one before it — more features, more polish.
         </p>
-      </MotionCard>
+      </div>
 
-      <MotionCard className="border rounded-lg overflow-x-auto">
-        <table className="min-w-full text-sm text-left border-collapse">
+      <MotionCard className='border rounded-lg overflow-x-auto'>
+        <table className='min-w-full text-sm text-left border-collapse'>
           <thead>
-            <tr className="bg-gray-50 border-b text-[#030b1a]">
-              <th className="p-4 font-medium text-left">Feature</th>
+            <tr className='bg-gray-50 border-b text-[#030b1a]'>
+              <th className='p-4 font-medium text-left'>Feature</th>
               {(tiers as Array<keyof typeof tierLabels>).map((tier, index) => (
                 <th
                   key={tier}
                   onMouseEnter={() => setHoverCol(index)}
                   onMouseLeave={() => setHoverCol(null)}
-                  className="p-4 font-semibold text-center md:text-left cursor-pointer"
+                  className='p-4 font-semibold text-center md:text-left cursor-pointer'
                 >
                   {tierLabels[tier]}
                 </th>
@@ -187,17 +196,23 @@ export default function CompareFeaturesTable() {
           <tbody>
             {groupedFeatures.map((group, groupIdx) => (
               <React.Fragment key={groupIdx}>
-                <tr className="bg-gray-100 border-b">
-                  <td colSpan={tiers.length + 1} className="p-4 font-semibold text-[#030b1a]">
+                <tr className='bg-gray-100 border-b'>
+                  <td
+                    colSpan={tiers.length + 1}
+                    className='p-4 font-semibold text-[#030b1a]'
+                  >
                     {group.name}
                   </td>
                 </tr>
                 {group.features.map((feature, i) => (
-                  <tr key={feature.label} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                    <td className="flex flex-col p-4 gap-2 items-start text-gray-700 md:flex-row">
+                  <tr
+                    key={feature.label}
+                    className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}
+                  >
+                    <td className='flex flex-col p-4 gap-2 items-start text-gray-700 md:flex-row'>
                       {feature.label}
                       <span title={feature.description}>
-                        <Info className="h-4 w-4 text-gray-400 hover:text-blue-600 transition" />
+                        <Info className='h-4 w-4 text-gray-400 hover:text-blue-600 transition' />
                       </span>
                     </td>
                     {tiers.map((tier, idx) => (
@@ -211,13 +226,17 @@ export default function CompareFeaturesTable() {
                           <motion.div
                             whileHover={{ scale: 1.25 }}
                             whileTap={{ scale: 0.9 }}
-                            transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-                            className="inline-block"
+                            transition={{
+                              type: 'spring',
+                              stiffness: 300,
+                              damping: 15,
+                            }}
+                            className='inline-block'
                           >
-                            <Check className="h-4 w-4 text-green-600" />
+                            <Check className='h-4 w-4 text-green-600' />
                           </motion.div>
                         ) : (
-                          <X className="h-4 w-4 text-gray-300 inline" />
+                          <X className='h-4 w-4 text-gray-300 inline' />
                         )}
                       </td>
                     ))}

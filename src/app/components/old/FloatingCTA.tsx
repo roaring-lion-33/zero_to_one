@@ -1,15 +1,13 @@
 'use client';
 
 import { FC, useEffect, useState } from 'react';
-import MotionSection from '../motion/MotionSection';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send } from 'lucide-react';
 import Link from 'next/link';
 
-
 interface Props {
   alwaysVisibleAfter: string; // e.g. "#hero" or "#what-you-get"
-  until?: string;             // optional: hide before this selector (e.g. "#contact")
+  until?: string; // optional: hide before this selector (e.g. "#contact")
 }
 
 const FloatingCTA: FC<Props> = ({ alwaysVisibleAfter, until }) => {
@@ -43,23 +41,21 @@ const FloatingCTA: FC<Props> = ({ alwaysVisibleAfter, until }) => {
     <AnimatePresence>
       {show && (
         <motion.div
-          key="floating-cta"
+          key='floating-cta'
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
           transition={{ duration: 0.4 }}
-          className="fixed z-50 bottom-6 right-6"
+          className='fixed z-50 bottom-6 right-6'
         >
-          <motion.div className="flex flex-col gap-2 items-center sm:flex-row">
+          <motion.div className='flex flex-col gap-2 items-center sm:flex-row'>
             <Link
-              href="#contact"
-              className="px-6 py-3 gap-2 items-center text-sm font-medium text-white shadow-lg rounded-full hover:-translate-y-1 hover:shadow-xl transition-transform inline-flex bg-[var(--accent)]"
+              href='#contact'
+              className='px-6 py-3 gap-2 items-center text-sm font-medium text-white shadow-lg rounded-full hover:-translate-y-1 hover:shadow-xl transition-transform inline-flex bg-[var(--accent)]'
             >
-              <Send className="h-4 w-4" />
+              <Send className='h-4 w-4' />
               <span>Share Your Idea</span>
             </Link>
-
-        
           </motion.div>
         </motion.div>
       )}

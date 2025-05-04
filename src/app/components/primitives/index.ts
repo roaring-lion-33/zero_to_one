@@ -1,4 +1,3 @@
-export { default as TechToolCard } from './TechToolCard';
 export { default as TestimonialCard } from './TestimonialCard';
 export { default as LaunchStepItem } from './LaunchStepItem';
 export { default as CaseStudyCard } from './CaseStudyCard';
